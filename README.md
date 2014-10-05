@@ -1,3 +1,66 @@
+# About
+
+This repository contains treebanks for Latin from the [Ancient Latin Dependency Treebank, version 1.7](http://nlp.perseus.tufts.edu/syntax/treebank/).
+
+The file `make_pos_training_set.py` generates the training set `pos_training_set.txt`, which encodes part of speech data like so:
+
+``` python
+Cum/c-------- esset/v3sisa--- Caesar/n-s---mn- in/r-------- citeriore/a-s---fbc Gallia/n-s---fb- in/r-------- hibernis/n-p---nb- 
+```
+
+`pos_training_set.txt` is made for the purpose of being used with NLTK's `TaggedCorpusReader`.
+
+Example custom training:
+``` python
+In [1]: from nltk.corpus.reader import TaggedCorpusReader
+
+In [2]: from nltk.tag import UnigramTagger
+
+In [3]: from nltk.tokenize import wordpunct_tokenize
+
+In [4]: reader = TaggedCorpusReader('.', r'.*\.pos')
+
+In [5]: train_sents = reader.tagged_sents()
+
+In [6]: tagger = UnigramTagger(train_sents)
+
+In [7]: untagged_text = "Gallia est omnis divisa in partes tres, quarum unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur."
+
+In [8]: untagged_tokens = wordpunct_tokenize(untagged_text)
+
+In [9]: tagger.tag(untagged_tokens)
+Out[9]: 
+[('Gallia', 'N-S---FB-'),
+ ('est', 'V3SPIA---'),
+ ('omnis', 'A-P---MA-'),
+ ('divisa', 'T-PRPPNN-'),
+ ('in', 'R--------'),
+ ('partes', 'N-P---FA-'),
+ ('tres', 'M--------'),
+ (',', 'U--------'),
+ ('quarum', 'P-P---FG-'),
+ ('unam', 'A-S---FA-'),
+ ('incolunt', None),
+ ('Belgae', 'N-P---MN-'),
+ (',', 'U--------'),
+ ('aliam', 'A-S---FA-'),
+ ('Aquitani', None),
+ (',', 'U--------'),
+ ('tertiam', 'A-S---FA-'),
+ ('qui', 'P-S---MN-'),
+ ('ipsorum', 'P-P---MG-'),
+ ('lingua', 'N-S---FB-'),
+ ('Celtae', None),
+ (',', 'U--------'),
+ ('nostra', 'A-S---FB-'),
+ ('Galli', 'N-P---MN-'),
+ ('appellantur', None),
+ ('.', 'U--------')]
+
+```
+
+
+
 This is a README file for the Latin Dependency Treebank, version 1.5.
 
 
