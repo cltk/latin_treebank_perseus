@@ -57,6 +57,8 @@ Out[9]:
  ('appellantur', None),
  ('.', 'U--------')]
 
+In [10]: tagger.evaluate(train_sents)
+Out[10]: 0.8873793350017877
 ```
 
 
