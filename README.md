@@ -62,6 +62,29 @@ Out[10]: 0.8873793350017877
 ```
 
 
+The following commands were used to make `123grambackoff.pickle`.
+
+``` python
+from nltk.corpus.reader import TaggedCorpusReader
+from nltk.tag import BigramTagger
+from nltk.tag import TrigramTagger
+from nltk.tag import UnigramTagger
+from nltk.tokenize import wordpunct_tokenize
+import pickle
+
+reader = TaggedCorpusReader('.', 'latin_training_set.pos')
+train_sents = reader.tagged_sents()
+tagger1 = UnigramTagger(train_sents)
+tagger2 = BigramTagger(train_sents, backoff=tagger1)
+tagger3 = TrigramTagger(train_sents, backoff=tagger2)
+
+with open('123grambackoff.pickle', 'wb') as f:
+    pickle.dump(tagger3, f)
+
+```
+
+
+# README
 
 This is a README file for the Latin Dependency Treebank, version 1.5.
 
