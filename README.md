@@ -4,7 +4,7 @@ This repository contains treebanks for Latin from the [Ancient Latin Dependency 
 
 The file `make_pos_training_set.py` generates the training set `pos_training_set.txt`, which encodes part of speech data like so:
 
-The file `latin_treebank_perseus_new.tar.gz was made with: `cd latin_treebank_perseus && tar -zcvf ../latin_treebank_perseus_new.tar.gz * && cd ..`.
+The file `latin_treebank_perseus_new.tar.gz` was made with: `cd latin_treebank_perseus && tar -zcvf ../latin_treebank_perseus_new.tar.gz * && cd ..`.
 
 ``` python
 Cum/c-------- esset/v3sisa--- Caesar/n-s---mn- in/r-------- citeriore/a-s---fbc Gallia/n-s---fb- in/r-------- hibernis/n-p---nb- 
