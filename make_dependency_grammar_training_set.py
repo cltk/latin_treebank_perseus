@@ -31,14 +31,20 @@ def get_tags():
     for sentence in sentences:  # note: sentence is Element
         words_list = sentence.findall('word')
         sentence_list = []
+        # http://ilk.uvt.nl/conll/
         for x in words_list:  #note: word is class
             word = x.attrib
+            id = word['id']
             form = word['form']
-            #lemma = word['lemma']
+            lemma = word['lemma']
+            cpostag = word['relation']  # Coarse-grained part-of-speech tag
             postag = word['postag']
+            feats = '_'  # an underscore if not available
             head = word['head']
-            relation = word['relation']
-            word_grammar = '\t'.join([form, postag, head, relation])
+            deprel = word['head']
+            phead = '_'
+            pderprel = '_'
+            word_grammar = '\t'.join([id, form, lemma, cpostag, postag, feats, head, deprel, phead, pderprel])
             sentence_list.append(word_grammar)
         joined_sentence = '\n'.join(sentence_list)
         sentences_list.append(joined_sentence)
