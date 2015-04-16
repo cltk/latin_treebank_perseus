@@ -5,6 +5,43 @@ This repository contains treebanks for Latin from the [Ancient Latin Dependency 
 
 # Dependency grammar
 
+## About training with MaltParser
+
+This was the command used to train the model (`.mco`):
+
+```
+java -jar ~/Downloads/maltparser-1.8.1/maltparser-1.8.1.jar -c perseus_cltk -i dg_train.conll -m learn
+```
+
+whose output was:
+
+```
+Started: Wed Apr 15 23:38:44 EDT 2015
+  Transition system    : Arc-Eager
+  Parser configuration : Nivre with allow_root=true, allow_reduce=false and enforce_tree=false
+  Oracle               : Arc-Eager
+  Data Format          : file:////Users/kyle/latin_treebank_perseus/test/conllx.xml
+.          	      1	      0s	      3MB
+.          	     10	      0s	      4MB
+.          	    100	      0s	     16MB
+..........	   1000	      1s	     64MB
+..........	   2000	      2s	     80MB
+..........	   3000	      3s	     74MB
+....       	   3472	      4s	     34MB
+Creating Liblinear model odm0.liblinear.moo
+- Read all training instances.
+- Train a parser model using LibLinear.
+- Optimize the memory usage
+- Save the Liblinear model odm0.liblinear.moo
+Learning time: 00:00:59 (59969 ms)
+Finished: Wed Apr 15 23:39:44 EDT 2015
+```
+
+
+
+
+## About Perseus treebank
+
 In their own words:
 
 > The annotation style proposed here is predominantly informed by two sources: the dependency grammar used by the Prague Dependency Treebank (itself based on Sgall et al. [9]), and the Latin grammar of Pinkster.

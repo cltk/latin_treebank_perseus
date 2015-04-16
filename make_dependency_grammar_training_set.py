@@ -51,7 +51,7 @@ def get_tags():
 
     joined_sentences = '\n\n'.join(sentences_list)
 
-    with open('dg_training_set.txt', 'w') as f:
+    with open('dg_train.conll', 'w') as f:
         f.write(joined_sentences)
 
 
