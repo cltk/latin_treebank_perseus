@@ -1,6 +1,42 @@
 # About
 
-This repository contains treebanks for Latin from the [Ancient Latin Dependency Treebank, version 1.7](http://nlp.perseus.tufts.edu/syntax/treebank/).
+This repository contains treebanks for Latin from the [Ancient Latin Dependency Treebank, version 1.7](http://nlp.perseus.tufts.edu/syntax/treebank/). The file `latin_treebank_perseus/ldt-1.5.xml` contains all of the treebank data.
+
+
+# Dependency grammar
+
+In their own words:
+
+> The annotation style proposed here is predominantly informed by two sources: the dependency grammar used by the Prague Dependency Treebank (itself based on Sgall et al. [9]), and the Latin grammar of Pinkster.
+
+The following are the dependency tags in use:
+
+```
+PRED predicate
+SBJ subject
+OBJ object
+ATR attributive
+ADV adverbial
+ATV/AtvV complement
+PNOM predicate nominal
+OCOMP object complement
+COORD coordinator
+APOS apposing element
+AuxP preposition
+AuxC conjunction
+AuxV auxiliary verb
+AuxX commas
+AuxG bracketing punctuation
+AuxK terminal punctuation
+AuxY sentence adverbials
+AuxZ emphasizing particles
+ExD ellipsis
+```
+
+See the Perseus's treebank project's [overview of their dependency grammar system](http://nlp.perseus.tufts.edu/syntax/treebank/agdt/1.7/docs/guidelines.pdf) for specifics on what is intended by each tag.
+
+
+# Part of speech
 
 The file `make_pos_training_set.py` generates the training set `pos_training_set.txt`, which encodes part of speech data like so:
 
