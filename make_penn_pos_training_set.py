@@ -6,7 +6,6 @@ __license__ = 'MIT License. See LICENSE.'
 
 
 def get_tags():
-    treebank_training_set = []
     entire_treebank = 'latin_treebank_perseus/ldt-1.5.xml'
     with open(entire_treebank, 'r') as f:
         xml_string = f.read()
@@ -20,25 +19,24 @@ def get_tags():
         # http://ilk.uvt.nl/conll/
         for x in words_list:  # note: word is class
             word = x.attrib
-            id = word['id']
+            #id = word['id']
             form = word['form']
-            lemma = word['lemma']
+            #lemma = word['lemma']
             cpostag = word['relation']  # Coarse-grained part-of-speech tag
-            postag = word['postag']
-            feats = '_'  # an underscore if not available
-            head = word['head']
-            deprel = word['head']
-            phead = '_'
-            pderprel = '_'
-            word_grammar = '\t'.join([id, form, lemma, cpostag, postag, feats, head, deprel, phead, pderprel])
-            sentence_list.append(word_grammar)
-        joined_sentence = '\n'.join(sentence_list)
-        sentences_list.append(joined_sentence)
+            #postag = word['postag']
+            #feats = '_'  # an underscore if not available
+            #head = word['head']
+            #deprel = word['head']
+            #phead = '_'
+            #pderprel = '_'
+            word_tag = '/'.join([form, cpostag])
+            sentence_list.append(word_tag)
+        sentence_str = ' '.join(sentence_list)
+        sentences_list.append(sentence_str)
+    treebank_training_set = '\n\n'.join(sentences_list)
 
-    joined_sentences = '\n\n'.join(sentences_list)
-
-    with open('dg_train.conll', 'w') as f:
-        f.write(joined_sentences)
+    with open('penn_pos_training_set.pos', 'w') as f:
+        f.write(treebank_training_set)
 
 
 def main():
