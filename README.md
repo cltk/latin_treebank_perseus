@@ -75,6 +75,8 @@ See the Perseus's treebank project's [overview of their dependency grammar syste
 
 # Part of speech
 
+Note: For a full report on this tagger's accuracy, see ["CLTK POS tagging cross–validation"](http://kyle-p-johnson.com/blog/2014/12/31/cltk-pos-tagging-cross-validation.html).
+
 The file `make_pos_training_set.py` generates the training set `pos_training_set.txt`, which encodes part of speech data like so:
 
 ``` python
