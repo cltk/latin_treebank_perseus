@@ -20,7 +20,7 @@ def get_tags():
         for x in words_list:  # note: word is class
             word = x.attrib
             #id = word['id']
-            form = word['form']
+            form = word['form'].lower()
             #lemma = word['lemma']
             #cpostag = word['relation']  # Coarse-grained part-of-speech tag
             postag = word['postag']
