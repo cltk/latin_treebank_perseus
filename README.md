@@ -38,9 +38,22 @@ Finished: Wed Apr 15 23:39:44 EDT 2015
 ```
 
 
+To run the parser, after [basic setup](http://stackoverflow.com/a/14065146):
+
+```
+In [1]: from nltk.parse.malt import MaltParser
+
+In [2]: parser = MaltParser(working_dir="/Users/kyle/latin_treebank_perseus/", mco="perseus_cltk")
+
+In [3]: txt = 'Hi constanter omnes nuntiaverunt manus cogi, exercitum in unum locum conduci.'
+
+
+```
 
 
 ## About Perseus treebank
+
+..
 
 In their own words:
 
@@ -91,7 +104,7 @@ In [2]: from nltk.tag import UnigramTagger
 
 In [3]: from nltk.tokenize import wordpunct_tokenize
 
-In [4]: reader = TaggedCorpusReader('.', r'.*\.pos')
+In [4]: reader = TaggedCorpusReader('.', 'pos_training_set.pos')
 
 In [5]: train_sents = reader.tagged_sents()
 
