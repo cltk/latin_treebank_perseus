@@ -35,7 +35,7 @@ def get_tags():
         sentences_list.append(sentence_str)
     treebank_training_set = '\n\n'.join(sentences_list)
 
-    with open('pos_training_set.pos', 'w') as f:
+    with open('latin_training_set.pos', 'w') as f:
         f.write(treebank_training_set)
 
 
