@@ -25,7 +25,7 @@ def make_pos_model(model_type):
         tagger = TrigramTagger(train_sents)
         file = 'trigram.pickle'
     elif model_type == 'backoff':
-        tagger1 = BigramTagger(train_sents)
+        tagger1 = UnigramTagger(train_sents)
         tagger2 = BigramTagger(train_sents, backoff=tagger1)
         tagger = TrigramTagger(train_sents, backoff=tagger2)
         file = '123grambackoff.pickle'
@@ -42,6 +42,8 @@ def make_pos_model(model_type):
         pickle.dump(tagger, f)
 
     print('Completed training {0} model in {1} seconds to {2}.'.format(model_type, time.time() - now, path))
+
+    #print('Accuracy:', tagger.evaluate(train_sents))
 
 if __name__ == "__main__":
     make_pos_model('unigram')
