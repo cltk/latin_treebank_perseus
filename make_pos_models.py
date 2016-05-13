@@ -33,6 +33,14 @@ def make_pos_model(model_type):
         tagger = tnt.TnT()
         tagger.train(train_sents)
         file = 'tnt.pickle'
+    elif model_type == 'crf':
+        tagger = CRFTagger()
+        file = 'crf.pickle'
+        _dir = os.path.expanduser('~/latin_models_cltk/taggers/pos')
+        path = os.path.join(_dir, file)
+        tagger.train(train_sents, path)
+        print('Completed training {0} model in {1} seconds to {2}.'.format(model_type, time.time() - now, path))
+        return
     else:
         print('Invalid model_type.')
 
@@ -46,8 +54,9 @@ def make_pos_model(model_type):
     #print('Accuracy:', tagger.evaluate(train_sents))
 
 if __name__ == "__main__":
-    make_pos_model('unigram')
-    make_pos_model('bigram')
-    make_pos_model('trigram')
-    make_pos_model('backoff')
-    make_pos_model('tnt')
+    # make_pos_model('unigram')
+    # make_pos_model('bigram')
+    # make_pos_model('trigram')
+    # make_pos_model('backoff')
+    # make_pos_model('tnt')
+    make_pos_model('crf')
