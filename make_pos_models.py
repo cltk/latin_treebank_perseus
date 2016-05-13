@@ -3,6 +3,7 @@
 from nltk.corpus.reader import TaggedCorpusReader
 from nltk.tag import UnigramTagger
 from nltk.tag import BigramTagger
+from nltk.tag import CRFTagger  # python-crfsuite
 from nltk.tag import TrigramTagger
 from nltk.tag import tnt
 import os
