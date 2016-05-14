@@ -3,6 +3,17 @@
 This repository contains treebanks for Latin from the [Ancient Latin Dependency Treebank, version 1.7](http://nlp.perseus.tufts.edu/syntax/treebank/). The file `latin_treebank_perseus/ldt-1.5.xml` contains all of the treebank data.
 
 
+# Part of speech
+
+See `make_pos_models.py` for how models were created for the unigram, bigram, trigram, backoff (1, 2, 3), and crf models were made. They are kept in the `cltk/latin_models_cltk <https://github.com/cltk/latin_models_cltk>`_ repo.
+
+The Lapos model was made with the Lapos tagger (`cltk/lapos <https://github.com/cltk/lapos>`_) and the following command:
+
+``` shell
+$ ./lapos-learn -m ./model latin_training_set.pos
+```
+
+
 # Dependency grammar
 
 ## About training with MaltParser
